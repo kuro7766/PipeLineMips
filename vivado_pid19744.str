@@ -1461,3 +1461,4 @@ selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, [1][31:0]]",
 // TclEventType: DG_GRAPH_STALE
 // TclEventType: FILE_SET_CHANGE
 // TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE

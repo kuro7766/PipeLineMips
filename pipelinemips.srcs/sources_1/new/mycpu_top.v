@@ -29,7 +29,7 @@ reg         fs_valid;
 reg  [31:0] fs_pc;
 wire [31:0] inst;
 // ds_ -- ID  stage
-wire        ds_stall;  //  ds_stall 锟脚猴拷
+wire        ds_stall;  //  ds_stall 信号
 wire        ds_allowin;
 wire        ds_ready_go;
 wire        ds_to_es_valid;
@@ -80,17 +80,17 @@ wire        dst_is_rt;
 wire        gr_we;       
 wire        mem_we;      
 wire [ 4:0] dest;
-wire        is_load_op;   // is_load_op  取锟斤拷锟斤拷锟斤拷指锟斤拷
+wire        is_load_op;   // is_load_op  取操作数指令
 wire [ 4:0] rf_raddr1;
 wire [31:0] rf_rdata1;
 wire [ 4:0] rf_raddr2;
 wire [31:0] rf_rdata2;
-wire        rs_mch_es_dst; // 前锟斤拷锟斤拷锟斤拷藕锟?
-wire        rt_mch_es_dst; // 前锟斤拷锟斤拷锟斤拷藕锟?
-wire        rs_mch_ms_dst; // 前锟斤拷锟斤拷锟斤拷藕锟?
-wire        rt_mch_ms_dst; // 前锟斤拷锟斤拷锟斤拷藕锟?
-wire        rs_mch_ws_dst; // 前锟斤拷锟斤拷锟斤拷藕锟?
-wire        rt_mch_ws_dst; // 前锟斤拷锟斤拷锟斤拷藕锟?
+wire        rs_mch_es_dst; // 前馈相关信号
+wire        rt_mch_es_dst; // 前馈相关信号
+wire        rs_mch_ms_dst; // 前馈相关信号
+wire        rt_mch_ms_dst; // 前馈相关信号
+wire        rs_mch_ws_dst; // 前馈相关信号
+wire        rt_mch_ws_dst; // 前馈相关信号
 wire [31:0] rs_value;
 wire [31:0] rt_value;
 wire        rs_eq_rt;
@@ -114,7 +114,7 @@ reg         es_res_from_mem;
 reg         es_gr_we;
 reg         es_mem_we;
 reg  [ 4:0] es_dest;
-reg         es_is_load_op;  //ES 锟阶讹拷取锟斤拷锟斤拷锟斤拷
+reg         es_is_load_op;  //ES 阶段取操作数
 wire [31:0] alu_src1;
 wire [31:0] alu_src2;
 wire [31:0] alu_result;
@@ -196,16 +196,10 @@ always @(posedge clk) begin
 end
 
 assign op   = ds_inst[31:26];
-
-// r1 r2 r3
 assign rs   = ds_inst[25:21];
 assign rt   = ds_inst[20:16];
-// 淇濆瓨缁撴灉
-// http://kuroweb.cf/picture/1618922268703.jpg
 assign rd   = ds_inst[15:11];
 assign sa   = ds_inst[10: 6];
-
-// 鍔熻兘鐮?
 assign func = ds_inst[ 5: 0];
 assign imm  = ds_inst[15: 0];
 assign jidx = ds_inst[25: 0];
@@ -263,7 +257,7 @@ assign mem_we       = inst_sw;
 assign dest         = dst_is_r31 ? 5'd31 :
                       dst_is_rt  ? rt    : 
                                    rd;
-assign is_load_op   = inst_lw;       //lw执锟斤拷锟斤拷取锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+assign is_load_op   = inst_lw;       //lw执行有取操作数操作
 
 assign rf_raddr1 = rs;
 assign rf_raddr2 = rt;
@@ -278,19 +272,19 @@ regfile u_regfile(
     .wdata  (rf_wdata )
     );
 
-assign rs_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rs);           //前锟斤拷锟斤拷锟斤拷藕锟?
-assign rt_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rt) && !dst_is_rt; //前锟斤拷锟斤拷锟斤拷藕锟?
-assign rs_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rs); //前锟斤拷锟斤拷锟斤拷藕锟?
-assign rt_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rt) && !dst_is_rt; //前锟斤拷锟斤拷锟斤拷藕锟?
-assign rs_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rs); //前锟斤拷锟斤拷锟斤拷藕锟?
-assign rt_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rt) && !dst_is_rt; //前锟斤拷锟斤拷锟斤拷藕锟?
-assign rs_value = rs_mch_es_dst ? alu_result      :  //前锟斤拷锟斤拷锟斤拷
-                  rs_mch_ms_dst ? final_result    :  	//前锟斤拷锟斤拷锟斤拷  锟斤拷锟斤拷锟斤拷锟斤拷锟揭拷锟斤拷锟? *************
-                  rs_mch_ws_dst ? ws_final_result :  		//前锟斤拷锟斤拷锟斤拷  锟斤拷锟斤拷锟斤拷锟斤拷锟揭拷锟斤拷锟? *************
+assign rs_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rs);           //前馈相关信号
+assign rt_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rt) && !dst_is_rt; //前馈相关信号
+assign rs_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rs); //前馈相关信号
+assign rt_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rt) && !dst_is_rt; //前馈相关信号
+assign rs_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rs); //前馈相关信号
+assign rt_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rt) && !dst_is_rt; //前馈相关信号
+assign rs_value = rs_mch_es_dst ? alu_result      :  //前馈处理
+                  rs_mch_ms_dst ? final_result    :  	//前馈处理  错误代码需要更正  *************
+                  rs_mch_ws_dst ? ws_final_result :  		//前馈处理  错误代码需要更正  *************
                                   rf_rdata1;         
-assign rt_value = rt_mch_es_dst ? alu_result      :   //前锟斤拷锟斤拷锟斤拷
-                  rt_mch_ms_dst ? final_result    :   //前锟斤拷锟斤拷锟斤拷  锟斤拷锟斤拷锟斤拷锟斤拷锟揭拷锟斤拷锟? *************
-                  rt_mch_ws_dst ? ws_final_result :   //前锟斤拷锟斤拷锟斤拷     锟斤拷锟斤拷锟斤拷锟斤拷锟揭拷锟斤拷锟? *************
+assign rt_value = rt_mch_es_dst ? alu_result      :   //前馈处理
+                  rt_mch_ms_dst ? final_result    :   //前馈处理  错误代码需要更正  *************
+                  rt_mch_ws_dst ? ws_final_result :   //前馈处理     错误代码需要更正  *************
                                   rf_rdata2;          
 
 assign rs_eq_rt = (rs_value == rt_value);
@@ -329,7 +323,7 @@ always @(posedge clk) begin
         es_gr_we        <= gr_we;
         es_mem_we       <= mem_we;
         es_dest         <= dest;
-        es_is_load_op   <= is_load_op;           //es锟阶讹拷取锟斤拷锟斤拷锟斤拷
+        es_is_load_op   <= is_load_op;           //es阶段取操作数
     end
 end
 
