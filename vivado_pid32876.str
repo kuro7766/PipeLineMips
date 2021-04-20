@@ -1,0 +1,191 @@
+/*
+
+Xilinx Vivado v2019.2 (64-bit) [Major: 2019, Minor: 2]
+SW Build: 2708876 on Wed Nov  6 21:40:23 MST 2019
+IP Build: 2700528 on Thu Nov  7 00:09:20 MST 2019
+
+Process ID (PID): 32876
+License: Customer
+
+Current time: 	Thu Apr 08 08:20:03 CST 2021
+Time zone: 	China Standard Time (Asia/Shanghai)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Available disk space: 33 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	9.0.4 64-bit
+Java home: 	E:/Xilinx/Vivado/2019.2/tps/win64/jre9.0.4
+Java executable location: 	E:/Xilinx/Vivado/2019.2/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	hh
+User home directory: C:/Users/hh
+User working directory: G:/体系结构实验2021_lzz/6 pipelinemips
+User country: 	CN
+User language: 	zh
+User locale: 	zh_CN
+
+RDI_BASEROOT: E:/Xilinx/Vivado
+HDI_APPROOT: E:/Xilinx/Vivado/2019.2
+RDI_DATADIR: E:/Xilinx/Vivado/2019.2/data
+RDI_BINDIR: E:/Xilinx/Vivado/2019.2/bin
+
+Vivado preferences file location: C:/Users/hh/AppData/Roaming/Xilinx/Vivado/2019.2/vivado.xml
+Vivado preferences directory: C:/Users/hh/AppData/Roaming/Xilinx/Vivado/2019.2/
+Vivado layouts directory: C:/Users/hh/AppData/Roaming/Xilinx/Vivado/2019.2/layouts
+PlanAhead jar file location: 	E:/Xilinx/Vivado/2019.2/lib/classes/planAhead.jar
+Vivado log file location: 	G:/体系结构实验2021_lzz/6 pipelinemips/vivado.log
+Vivado journal file location: 	G:/体系结构实验2021_lzz/6 pipelinemips/vivado.jou
+Engine tmp dir: 	G:/体系结构实验2021_lzz/6 pipelinemips/.Xil/Vivado-32876-DESKTOP-BRS6M9C
+
+Xilinx Environment Variables
+----------------------------
+XILINX: E:/Xilinx/Vivado/2019.2/ids_lite/ISE
+XILINX_DSP: E:/Xilinx/Vivado/2019.2/ids_lite/ISE
+XILINX_PLANAHEAD: E:/Xilinx/Vivado/2019.2
+XILINX_VIVADO: E:/Xilinx/Vivado/2019.2
+XILINX_VIVADO_HLS: E:/Xilinx/Vivado/2019.2
+
+
+GUI allocated memory:	128 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 552 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// WARNING: HEventQueue.dispatchEvent() is taking  1058 ms.
+// TclEventType: PROJECT_OPEN_DIALOG
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bB (cr):  Open Project : addNotify
+// Opening Vivado Project: G:\体系结构实验2021_lzz\6 pipelinemips\pipelinemips.xpr. Version: Vivado v2019.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project {G:/体系结构实验2021_lzz/6 pipelinemips/pipelinemips.xpr} 
+// HMemoryUtils.trashcanNow. Engine heap size: 601 MB. GUI used memory: 51 MB. Current time: 4/8/21, 8:20:05 AM CST
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 68 MB (+68869kb) [00:00:38]
+// [Engine Memory]: 659 MB (+539920kb) [00:00:38]
+// [GUI Memory]: 93 MB (+22620kb) [00:00:39]
+// [GUI Memory]: 103 MB (+5219kb) [00:00:43]
+// [Engine Memory]: 707 MB (+15334kb) [00:00:43]
+// WARNING: HEventQueue.dispatchEvent() is taking  1722 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1317 ms.
+// Tcl Message: open_project {G:/体系结构实验2021_lzz/6 pipelinemips/pipelinemips.xpr} 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'E:/code/diycpu/pipelinemips' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2019.2/data/ip'. 
+// WARNING: HEventQueue.dispatchEvent() is taking  1146 ms.
+// Project name: pipelinemips; location: G:/体系结构实验2021_lzz/6 pipelinemips; part: xc7a200tfbg676-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 714.906 ; gain = 139.188 
+dismissDialog("Open Project"); // bB (cr)
+// WARNING: HEventQueue.dispatchEvent() is taking  2041 ms.
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 1020ms to process. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1023 ms.
+// Tcl Message: update_compile_order -fileset sources_1 
+// WARNING: HEventQueue.dispatchEvent() is taking  1318 ms.
+// Elapsed time: 11 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Top (Top.v)]", 1); // B (F, cr)
+// PAPropertyPanels.initPanels (mycpu_top.v) elapsed time: 0.2s
+// [GUI Memory]: 110 MB (+1760kb) [00:01:01]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Top (Top.v), cpu : mycpu_top (mycpu_top.v)]", 2, true); // B (F, cr) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Top (Top.v), cpu : mycpu_top (mycpu_top.v)]", 2, true); // B (F, cr) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Top (Top.v), cpu : mycpu_top (mycpu_top.v), u_dec1 : decoder_6_64 (decoder.v)]", 4, false, false, false, false, false, true); // B (F, cr) - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1217 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 732 MB. GUI used memory: 58 MB. Current time: 4/8/21, 8:20:36 AM CST
+selectCodeEditor("mycpu_top.v", 236, 187); // ch (w, cr)
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 961 ms to process. Increasing delay to 2000 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 1315 ms. Increasing delay to 3000 ms.
+// Elapsed time: 172 seconds
+selectCodeEditor("mycpu_top.v", 431, 236); // ch (w, cr)
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 1414 ms. Increasing delay to 4242 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 5582 ms. Increasing delay to 4000 ms.
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// WARNING: HEventQueue.dispatchEvent() is taking  1446 ms.
+// Elapsed time: 267 seconds
+selectCodeEditor("mycpu_top.v", 537, 215, false, false, false, true, false); // ch (w, cr) - Popup Trigger
+selectCodeEditor("mycpu_top.v", 729, 198, false, false, false, true, false); // ch (w, cr) - Popup Trigger
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h (ds, cr)
+selectCodeEditor("mycpu_top.v", 527, 226); // ch (w, cr)
+selectCodeEditor("mycpu_top.v", 610, 389); // ch (w, cr)
+selectCodeEditor("mycpu_top.v", 594, 375); // ch (w, cr)
+// WARNING: HEventQueue.dispatchEvent() is taking  2794 ms.
+// [GUI Memory]: 118 MB (+2921kb) [00:18:44]
+// Elapsed time: 893 seconds
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Top (Top.v), cpu : mycpu_top (mycpu_top.v)]", 2); // B (F, cr)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Top (Top.v), irom : irom (irom.xci)]", 3, false); // B (F, cr)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Top (Top.v), irom : irom (irom.xci)]", 3, false, false, false, false, false, true); // B (F, cr) - Double Click
+// Run Command: PAResourceCommand.PACommandNames_RECUSTOMIZE_CORE
+// TclEventType: LOAD_FEATURE
+// O (cr):  Re-customize IP : addNotify
+// TclEventType: LOAD_FEATURE
+// [Engine Memory]: 758 MB (+16171kb) [00:23:30]
+// r (cr): Re-customize IP: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  2470 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 768 MB. GUI used memory: 63 MB. Current time: 4/8/21, 8:43:04 AM CST
+dismissDialog("Re-customize IP"); // O (cr)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Port config", 1); // cU (E, r)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "RST & Initialization", 2); // cU (E, r)
+selectButton(PAResourceTtoZ.XPG_CoeFileWidgdet_EDIT, (String) null); // a (E, r)
+selectButton("OptionPane.button", "No"); // JButton (A, H)
+dismissDialog("Re-customize IP"); // r (cr)
+selectCodeEditor("mycpu_top.v", 484, 178); // ch (w, cr)
+selectCodeEditor("mycpu_top.v", 489, 217); // ch (w, cr)
+selectButton(PAResourceItoN.MainToolbarMgr_RUN, (String) null); // az (f, cr)
+selectMenuItem(PAResourceCommand.PACommandNames_RUN_SYNTHESIS, "Run Synthesis"); // ai (cr)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// A (cr): Run Synthesis: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (A)
+dismissDialog("Run Synthesis"); // A (cr)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 15, true); // u (O, cr) - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN
+// bJ (cr): Synthesis is Out-of-date: addNotify
+selectButton(PAResourceQtoS.StaleRunDialog_OPEN_DESIGN, "Open Design"); // a (bJ)
+// bB (cr):  Open Synthesized Design : addNotify
+dismissDialog("Synthesis is Out-of-date"); // bJ (cr)
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7a200tfbg676-1 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,038 MB. GUI used memory: 64 MB. Current time: 4/8/21, 8:43:42 AM CST
+// Elapsed time: 14 seconds
+selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a (bB)
+// 'dQ' command handler elapsed time: 17 seconds
+// [Engine Memory]: 1,212 MB (+437030kb) [00:24:19]
