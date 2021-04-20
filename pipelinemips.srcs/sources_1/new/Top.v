@@ -40,7 +40,7 @@ module Top(
     mycpu_top cpu
     (
         .clk        ( clk           ),
-        .reset        ( reset         ),
+        .reset_n        ( reset         ),
         .inst_sram_addr  ( inst_addr     ),
         .inst_sram_rdata  ( inst_data     ),
         .data_sram_wen   ( data_wen      ),

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="simu_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="simu" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="89055fs"></ZoomEndTime>
+      <Cursor1Time time="70556fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="301"></NameColumnWidth>
+      <ValueColumnWidth column_width="230"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="27" />
+   <wvobject fp_name="/simu/test/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/inst_addr" type="array">
+      <obj_property name="ElementShortName">inst_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/ds_valid" type="logic">
+      <obj_property name="ElementShortName">ds_valid</obj_property>
+      <obj_property name="ObjectShortName">ds_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/es_valid" type="logic">
+      <obj_property name="ElementShortName">es_valid</obj_property>
+      <obj_property name="ObjectShortName">es_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/ms_valid" type="logic">
+      <obj_property name="ElementShortName">ms_valid</obj_property>
+      <obj_property name="ObjectShortName">ms_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/ws_valid" type="logic">
+      <obj_property name="ElementShortName">ws_valid</obj_property>
+      <obj_property name="ObjectShortName">ws_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/ds_to_es_valid" type="logic">
+      <obj_property name="ElementShortName">ds_to_es_valid</obj_property>
+      <obj_property name="ObjectShortName">ds_to_es_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/es_to_ms_valid" type="logic">
+      <obj_property name="ElementShortName">es_to_ms_valid</obj_property>
+      <obj_property name="ObjectShortName">es_to_ms_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/rs_value" type="array">
+      <obj_property name="ElementShortName">rs_value[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs_value[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/rt_value" type="array">
+      <obj_property name="ElementShortName">rt_value[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rt_value[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/alu_src1" type="array">
+      <obj_property name="ElementShortName">alu_src1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/alu_src2" type="array">
+      <obj_property name="ElementShortName">alu_src2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/alu_result" type="array">
+      <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/fs_pc" type="array">
+      <obj_property name="ElementShortName">fs_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fs_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/ds_pc" type="array">
+      <obj_property name="ElementShortName">ds_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ds_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/es_pc" type="array">
+      <obj_property name="ElementShortName">es_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">es_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/ms_pc" type="array">
+      <obj_property name="ElementShortName">ms_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ms_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/ws_pc" type="array">
+      <obj_property name="ElementShortName">ws_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ws_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/inst_data" type="array">
+      <obj_property name="ElementShortName">inst_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[0]" type="array">
+      <obj_property name="ElementShortName">[0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[1]" type="array">
+      <obj_property name="ElementShortName">[1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[2]" type="array">
+      <obj_property name="ElementShortName">[2][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[3]" type="array">
+      <obj_property name="ElementShortName">[3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[4]" type="array">
+      <obj_property name="ElementShortName">[4][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[5]" type="array">
+      <obj_property name="ElementShortName">[5][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[6]" type="array">
+      <obj_property name="ElementShortName">[6][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[7]" type="array">
+      <obj_property name="ElementShortName">[7][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+   </wvobject>
+</wave_config>

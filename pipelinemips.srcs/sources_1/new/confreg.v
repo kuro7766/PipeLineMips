@@ -18,12 +18,6 @@ module confreg
     reg [15:0] num;
     
 
-   /*always @(posedge clk) begin
-        led <= {8'b0,switch};
-        ca <= 8'b11111100;
-        an = 4'b1110;
-    end*/
-
     always @(*) begin
         case (data_addr[5:2])
             4'h0: data_din <= {24'b0, switch}; //addr=0,switch

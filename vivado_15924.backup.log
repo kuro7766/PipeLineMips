@@ -1,0 +1,33 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Apr 20 19:59:44 2021
+# Process ID: 15924
+# Current directory: D:/6 pipelinemips
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13656 D:\6 pipelinemips\pipelinemips.xpr
+# Log file: D:/6 pipelinemips/vivado.log
+# Journal file: D:/6 pipelinemips\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/6 pipelinemips/pipelinemips.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.2/data/ip'.
+update_compile_order -fileset sources_1
+reset_run irom_synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'irom'...
+ERROR: [Ipptcl 7-519] NULL COE Data pointer: Invalid Hex Value detected in the COE File: XXXXXXXX
+ERROR: [Common 17-39] 'ipgui::get_coe_val' failed due to earlier errors.
+CRITICAL WARNING: [IP_Flow 19-1747] Failed to deliver file 'd:/Xilinx/Vivado/2019.2/data/ip/xilinx/dist_mem_gen_v8_0/hdl/mem_init_file.xit': ERROR: [Common 17-39] 'ipgui::get_coe_val' failed due to earlier errors.
+
+ERROR: [IP_Flow 19-167] Failed to deliver one or more file(s).
+ERROR: [IP_Flow 19-3505] IP Generation error: Failed to generate IP 'irom'. Failed to generate 'Vivado VHDL Synthesis' outputs: 
+ERROR: [IP_Flow 19-98] Generation of the IP CORE failed.
+Failed to generate IP 'irom'. Failed to generate 'Vivado VHDL Synthesis' outputs: 
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 20 20:00:44 2021...
