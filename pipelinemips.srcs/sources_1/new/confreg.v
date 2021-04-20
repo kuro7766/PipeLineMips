@@ -36,6 +36,7 @@ module confreg
             timer <= 15'b0;
         end
         else begin
+            // 计数器
             timer <= timer + 32'd1;
             if(data_wen) begin
                 case (data_addr[5:2])

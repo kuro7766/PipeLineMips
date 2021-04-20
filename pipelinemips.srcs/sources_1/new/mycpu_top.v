@@ -28,6 +28,8 @@ wire        fs_to_ds_valid;
 reg         fs_valid;
 reg  [31:0] fs_pc;
 wire [31:0] inst;
+
+
 // ds_ -- ID  stage
 wire        ds_stall;  //  ds_stall 信号
 wire        ds_allowin;
@@ -85,12 +87,19 @@ wire [ 4:0] rf_raddr1;
 wire [31:0] rf_rdata1;
 wire [ 4:0] rf_raddr2;
 wire [31:0] rf_rdata2;
+
+// fs、ds、es、ms、ws分
+// 别对应取指、译码、执行、访存阶段。
+
+// match ?
 wire        rs_mch_es_dst; // 前馈相关信号
 wire        rt_mch_es_dst; // 前馈相关信号
 wire        rs_mch_ms_dst; // 前馈相关信号
 wire        rt_mch_ms_dst; // 前馈相关信号
 wire        rs_mch_ws_dst; // 前馈相关信号
 wire        rt_mch_ws_dst; // 前馈相关信号
+
+
 wire [31:0] rs_value;
 wire [31:0] rt_value;
 wire        rs_eq_rt;
@@ -130,6 +139,7 @@ reg         ms_gr_we;
 reg  [31:0] ms_alu_result;
 wire [31:0] mem_result;
 wire [31:0] final_result;
+
 // ws_ -- WB  stage
 wire        ws_allowin;
 wire        ws_ready_go;

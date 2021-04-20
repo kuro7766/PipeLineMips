@@ -17,5 +17,3 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "E:/code/vscode/6 pipelinemips/pipel
 INFO: [VRFC 10-311] analyzing module regfile
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/sim/simu.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module simu
-INFO: [VRFC 10-2263] Analyzing Verilog file "E:/code/vscode/6 pipelinemips/pipelinemips.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
