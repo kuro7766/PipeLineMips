@@ -29,7 +29,7 @@ reg         fs_valid;
 reg  [31:0] fs_pc;
 wire [31:0] inst;
 // ds_ -- ID  stage
-wire        ds_stall;  //  ds_stall ĞÅºÅ
+wire        ds_stall;  //  ds_stall ä¿¡å·
 wire        ds_allowin;
 wire        ds_ready_go;
 wire        ds_to_es_valid;
@@ -80,17 +80,17 @@ wire        dst_is_rt;
 wire        gr_we;       
 wire        mem_we;      
 wire [ 4:0] dest;
-wire        is_load_op;   // is_load_op  È¡²Ù×÷ÊıÖ¸Áî
+wire        is_load_op;   // is_load_op  å–æ“ä½œæ•°æŒ‡ä»¤
 wire [ 4:0] rf_raddr1;
 wire [31:0] rf_rdata1;
 wire [ 4:0] rf_raddr2;
 wire [31:0] rf_rdata2;
-wire        rs_mch_es_dst; // Ç°À¡Ïà¹ØĞÅºÅ
-wire        rt_mch_es_dst; // Ç°À¡Ïà¹ØĞÅºÅ
-wire        rs_mch_ms_dst; // Ç°À¡Ïà¹ØĞÅºÅ
-wire        rt_mch_ms_dst; // Ç°À¡Ïà¹ØĞÅºÅ
-wire        rs_mch_ws_dst; // Ç°À¡Ïà¹ØĞÅºÅ
-wire        rt_mch_ws_dst; // Ç°À¡Ïà¹ØĞÅºÅ
+wire        rs_mch_es_dst; // å‰é¦ˆç›¸å…³ä¿¡å·
+wire        rt_mch_es_dst; // å‰é¦ˆç›¸å…³ä¿¡å·
+wire        rs_mch_ms_dst; // å‰é¦ˆç›¸å…³ä¿¡å·
+wire        rt_mch_ms_dst; // å‰é¦ˆç›¸å…³ä¿¡å·
+wire        rs_mch_ws_dst; // å‰é¦ˆç›¸å…³ä¿¡å·
+wire        rt_mch_ws_dst; // å‰é¦ˆç›¸å…³ä¿¡å·
 wire [31:0] rs_value;
 wire [31:0] rt_value;
 wire        rs_eq_rt;
@@ -114,7 +114,7 @@ reg         es_res_from_mem;
 reg         es_gr_we;
 reg         es_mem_we;
 reg  [ 4:0] es_dest;
-reg         es_is_load_op;  //ES ½×¶ÎÈ¡²Ù×÷Êı
+reg         es_is_load_op;  //ES é˜¶æ®µå–æ“ä½œæ•°
 wire [31:0] alu_src1;
 wire [31:0] alu_src2;
 wire [31:0] alu_result;
@@ -257,7 +257,7 @@ assign mem_we       = inst_sw;
 assign dest         = dst_is_r31 ? 5'd31 :
                       dst_is_rt  ? rt    : 
                                    rd;
-assign is_load_op   = inst_lw;       //lwÖ´ĞĞÓĞÈ¡²Ù×÷Êı²Ù×÷
+assign is_load_op   = inst_lw;       //lwæ‰§è¡Œæœ‰å–æ“ä½œæ•°æ“ä½œ
 
 assign rf_raddr1 = rs;
 assign rf_raddr2 = rt;
@@ -272,19 +272,19 @@ regfile u_regfile(
     .wdata  (rf_wdata )
     );
 
-assign rs_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rs);           //Ç°À¡Ïà¹ØĞÅºÅ
-assign rt_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rt) && !dst_is_rt; //Ç°À¡Ïà¹ØĞÅºÅ
-assign rs_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rs); //Ç°À¡Ïà¹ØĞÅºÅ
-assign rt_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rt) && !dst_is_rt; //Ç°À¡Ïà¹ØĞÅºÅ
-assign rs_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rs); //Ç°À¡Ïà¹ØĞÅºÅ
-assign rt_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rt) && !dst_is_rt; //Ç°À¡Ïà¹ØĞÅºÅ
-assign rs_value = rs_mch_es_dst ? alu_result      :  //Ç°À¡´¦Àí
-                  rs_mch_ms_dst ? final_result    :  	//Ç°À¡´¦Àí  ´íÎó´úÂëĞèÒª¸üÕı  *************
-                  rs_mch_ws_dst ? ws_final_result :  		//Ç°À¡´¦Àí  ´íÎó´úÂëĞèÒª¸üÕı  *************
+assign rs_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rs);           //å‰é¦ˆç›¸å…³ä¿¡å·
+assign rt_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rt) && !dst_is_rt; //å‰é¦ˆç›¸å…³ä¿¡å·
+assign rs_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rs); //å‰é¦ˆç›¸å…³ä¿¡å·
+assign rt_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rt) && !dst_is_rt; //å‰é¦ˆç›¸å…³ä¿¡å·
+assign rs_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rs); //å‰é¦ˆç›¸å…³ä¿¡å·
+assign rt_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rt) && !dst_is_rt; //å‰é¦ˆç›¸å…³ä¿¡å·
+assign rs_value = rs_mch_es_dst ? alu_result      :  //å‰é¦ˆå¤„ç†
+                  rs_mch_ms_dst ? final_result    :  	//å‰é¦ˆå¤„ç†  é”™è¯¯ä»£ç éœ€è¦æ›´æ­£  *************
+                  rs_mch_ws_dst ? ws_final_result :  		//å‰é¦ˆå¤„ç†  é”™è¯¯ä»£ç éœ€è¦æ›´æ­£  *************
                                   rf_rdata1;         
-assign rt_value = rt_mch_es_dst ? alu_result      :   //Ç°À¡´¦Àí
-                  rt_mch_ms_dst ? final_result    :   //Ç°À¡´¦Àí  ´íÎó´úÂëĞèÒª¸üÕı  *************
-                  rt_mch_ws_dst ? ws_final_result :   //Ç°À¡´¦Àí     ´íÎó´úÂëĞèÒª¸üÕı  *************
+assign rt_value = rt_mch_es_dst ? alu_result      :   //å‰é¦ˆå¤„ç†
+                  rt_mch_ms_dst ? final_result    :   //å‰é¦ˆå¤„ç†  é”™è¯¯ä»£ç éœ€è¦æ›´æ­£  *************
+                  rt_mch_ws_dst ? ws_final_result :   //å‰é¦ˆå¤„ç†     é”™è¯¯ä»£ç éœ€è¦æ›´æ­£  *************
                                   rf_rdata2;          
 
 assign rs_eq_rt = (rs_value == rt_value);
@@ -323,7 +323,7 @@ always @(posedge clk) begin
         es_gr_we        <= gr_we;
         es_mem_we       <= mem_we;
         es_dest         <= dest;
-        es_is_load_op   <= is_load_op;           //es½×¶ÎÈ¡²Ù×÷Êı
+        es_is_load_op   <= is_load_op;           //esé˜¶æ®µå–æ“ä½œæ•°
     end
 end
 
