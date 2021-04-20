@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
 -- Date        : Fri Apr  2 20:42:34 2021
 -- Host        : DESKTOP-TREH2UP running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/ip/irom/irom_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top irom -prefix
+--               irom_ irom_sim_netlist.vhdl
 -- Design      : irom
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -19,8 +19,6 @@ entity irom_rom is
     spo : out STD_LOGIC_VECTOR ( 11 downto 0 );
     a : in STD_LOGIC_VECTOR ( 9 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of irom_rom : entity is "rom";
 end irom_rom;
 
 architecture STRUCTURE of irom_rom is
@@ -206,8 +204,6 @@ entity irom_dist_mem_gen_v8_0_13_synth is
     spo : out STD_LOGIC_VECTOR ( 11 downto 0 );
     a : in STD_LOGIC_VECTOR ( 9 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of irom_dist_mem_gen_v8_0_13_synth : entity is "dist_mem_gen_v8_0_13_synth";
 end irom_dist_mem_gen_v8_0_13_synth;
 
 architecture STRUCTURE of irom_dist_mem_gen_v8_0_13_synth is
@@ -306,8 +302,6 @@ entity irom_dist_mem_gen_v8_0_13 is
   attribute C_SYNC_ENABLE of irom_dist_mem_gen_v8_0_13 : entity is 1;
   attribute C_WIDTH : integer;
   attribute C_WIDTH of irom_dist_mem_gen_v8_0_13 : entity is 32;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of irom_dist_mem_gen_v8_0_13 : entity is "dist_mem_gen_v8_0_13";
 end irom_dist_mem_gen_v8_0_13;
 
 architecture STRUCTURE of irom_dist_mem_gen_v8_0_13 is

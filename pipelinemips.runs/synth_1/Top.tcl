@@ -23,23 +23,23 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir E:/code/diycpu/pipelinemips/pipelinemips.cache/wt [current_project]
-set_property parent.project_path E:/code/diycpu/pipelinemips/pipelinemips.xpr [current_project]
+set_property webtalk.parent_dir {E:/code/vscode/6 pipelinemips/pipelinemips.cache/wt} [current_project]
+set_property parent.project_path {E:/code/vscode/6 pipelinemips/pipelinemips.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo e:/code/diycpu/pipelinemips/pipelinemips.cache/ip [current_project]
+set_property ip_output_repo {e:/code/vscode/6 pipelinemips/pipelinemips.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/romnew.coe
+add_files {{E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/romnew.coe}}
 read_verilog -library xil_defaultlib {
-  E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/new/21_4_pipeline_simple_cpu.v
-  E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/new/alu.v
-  E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/new/confreg.v
-  E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/new/decoder.v
-  E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/new/regfile.v
-  E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/new/Top.v
+  {E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/new/alu.v}
+  {E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/new/confreg.v}
+  {E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/new/decoder.v}
+  {E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/new/mycpu_top.v}
+  {E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/new/regfile.v}
+  {E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/new/Top.v}
 }
-read_ip -quiet E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/ip/irom/irom.xci
-set_property used_in_implementation false [get_files -all e:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/ip/irom/irom_ooc.xdc]
+read_ip -quiet {{E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/ip/irom/irom.xci}}
+set_property used_in_implementation false [get_files -all {{e:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/ip/irom/irom_ooc.xdc}}]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -49,8 +49,8 @@ set_property used_in_implementation false [get_files -all e:/code/diycpu/pipelin
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/Loogson.xdc
-set_property used_in_implementation false [get_files E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/Loogson.xdc]
+read_xdc {{E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/Loogson.xdc}}
+set_property used_in_implementation false [get_files {{E:/code/vscode/6 pipelinemips/pipelinemips.srcs/sources_1/Loogson.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

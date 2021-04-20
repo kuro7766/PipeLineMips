@@ -178,6 +178,7 @@ assign inst            = inst_sram_rdata;
     
 // ID stage
 assign ds_stall = (es_valid && es_is_load_op && (es_dest!=5'b0) && !inst_jal && (es_dest==rs || (es_dest==rt && !dst_is_rt)));  //  
+// 堵塞就不允许继续
 assign ds_ready_go    = !ds_stall;
 assign ds_allowin     = !ds_valid || ds_ready_go && es_allowin;
 assign ds_to_es_valid = ds_valid && ds_ready_go;

@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
 // Date        : Fri Apr  2 20:42:34 2021
 // Host        : DESKTOP-TREH2UP running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               E:/code/diycpu/pipelinemips/pipelinemips.srcs/sources_1/ip/irom/irom_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top irom -prefix
+//               irom_ irom_sim_netlist.v
 // Design      : irom
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -88,7 +88,7 @@ endmodule
 (* C_MEM_INIT_FILE = "irom.mif" *) (* C_MEM_TYPE = "0" *) (* C_PARSER_TYPE = "1" *) 
 (* C_PIPELINE_STAGES = "0" *) (* C_QCE_JOINED = "0" *) (* C_QUALIFY_WE = "0" *) 
 (* C_READ_MIF = "1" *) (* C_REG_A_D_INPUTS = "0" *) (* C_REG_DPRA_INPUT = "0" *) 
-(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "32" *) (* ORIG_REF_NAME = "dist_mem_gen_v8_0_13" *) 
+(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "32" *) 
 module irom_dist_mem_gen_v8_0_13
    (a,
     d,
@@ -258,7 +258,6 @@ module irom_dist_mem_gen_v8_0_13
         .spo({\^spo [31],\^spo [29],\^spo [25],\^spo [27:26],\^spo [24],\^spo [20:19],\^spo [16],\^spo [2:0]}));
 endmodule
 
-(* ORIG_REF_NAME = "dist_mem_gen_v8_0_13_synth" *) 
 module irom_dist_mem_gen_v8_0_13_synth
    (spo,
     a);
@@ -273,7 +272,6 @@ module irom_dist_mem_gen_v8_0_13_synth
         .spo(spo));
 endmodule
 
-(* ORIG_REF_NAME = "rom" *) 
 module irom_rom
    (spo,
     a);
