@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="89055fs"></ZoomEndTime>
-      <Cursor1Time time="70556fs"></Cursor1Time>
+      <ZoomEndTime time="60501fs"></ZoomEndTime>
+      <Cursor1Time time="85000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="301"></NameColumnWidth>
-      <ValueColumnWidth column_width="230"></ValueColumnWidth>
+      <ValueColumnWidth column_width="87"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="27" />
+   <WVObjectSize size="23" />
    <wvobject fp_name="/simu/test/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -96,36 +96,20 @@
       <obj_property name="ElementShortName">inst_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">inst_data[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[0]" type="array">
-      <obj_property name="ElementShortName">[0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+   <wvobject fp_name="/simu/led" type="array">
+      <obj_property name="ElementShortName">led[15:0]</obj_property>
+      <obj_property name="ObjectShortName">led[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[1]" type="array">
-      <obj_property name="ElementShortName">[1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+   <wvobject fp_name="/simu/ca" type="array">
+      <obj_property name="ElementShortName">ca[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ca[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[2]" type="array">
-      <obj_property name="ElementShortName">[2][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+   <wvobject fp_name="/simu/an" type="array">
+      <obj_property name="ElementShortName">an[3:0]</obj_property>
+      <obj_property name="ObjectShortName">an[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[3]" type="array">
-      <obj_property name="ElementShortName">[3][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[4]" type="array">
-      <obj_property name="ElementShortName">[4][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[5]" type="array">
-      <obj_property name="ElementShortName">[5][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[6]" type="array">
-      <obj_property name="ElementShortName">[6][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[6][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simu/test/cpu/u_regfile/rf[7]" type="array">
-      <obj_property name="ElementShortName">[7][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+   <wvobject fp_name="/simu/switch" type="array">
+      <obj_property name="ElementShortName">switch[7:0]</obj_property>
+      <obj_property name="ObjectShortName">switch[7:0]</obj_property>
    </wvobject>
 </wave_config>

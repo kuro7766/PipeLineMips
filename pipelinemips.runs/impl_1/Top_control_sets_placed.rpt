@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Tue Apr 20 20:40:17 2021
+| Date         : Wed Apr 21 16:36:47 2021
 | Host         : LAPTOP-5L30QH1U running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Top_control_sets_placed.rpt
 | Design       : Top
@@ -75,10 +75,10 @@ Table of Contents
 +----------------+------------------------+---------------------------+------------------+----------------+
 |  clk_IBUF_BUFG |                        |                           |                1 |              1 |
 |  clk_IBUF_BUFG | cpu/fs_allowin         | ram/clear                 |                1 |              1 |
-|  clk_IBUF_BUFG | cpu/ds_to_es_valid     | cpu/es_alu_op[10]_i_1_n_1 |                2 |              4 |
 |  clk_IBUF_BUFG | cpu/ds_to_es_valid     | cpu/es_alu_op[7]_i_1_n_1  |                2 |              4 |
-|  clk_IBUF_BUFG | cpu/es_mem_we_reg_0[0] | ram/clear                 |                4 |             16 |
+|  clk_IBUF_BUFG | cpu/ds_to_es_valid     | cpu/es_alu_op[10]_i_1_n_1 |                2 |              4 |
 |  clk_IBUF_BUFG | cpu/E[0]               | ram/clear                 |                9 |             16 |
+|  clk_IBUF_BUFG | cpu/es_mem_we_reg_0[0] | ram/clear                 |                4 |             16 |
 |  clk_IBUF_BUFG | cpu/fs_pc0             | ram/clear                 |               13 |             32 |
 |  n_0_350_BUFG  |                        |                           |               13 |             32 |
 |  clk_IBUF_BUFG | cpu/ms_valid           |                           |               15 |             38 |

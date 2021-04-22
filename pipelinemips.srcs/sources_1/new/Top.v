@@ -24,7 +24,7 @@ module Top(
     input  wire  clk,
     input  wire  reset,
     input  wire [7: 0] switch,
-    input  wire [ 3: 0] keys,
+    input  wire [ 3: 0] keys, //小键盘按键
     output wire [15: 0] led,
     output wire [ 7: 0] ca,
     output wire [ 3: 0] an

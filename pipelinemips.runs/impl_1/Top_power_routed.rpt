@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Tue Apr 20 20:41:16 2021
+| Date             : Wed Apr 21 16:38:16 2021
 | Host             : LAPTOP-5L30QH1U running 64-bit major release  (build 9200)
 | Command          : report_power -file Top_power_routed.rpt -pb Top_power_summary_routed.pb -rpx Top_power_routed.rpx
 | Design           : Top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.526        |
+| Total On-Chip Power (W)  | 3.537        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 3.385        |
+| Dynamic (W)              | 3.396        |
 | Device Static (W)        | 0.141        |
 | Effective TJA (C/W)      | 1.9          |
 | Max Ambient (C)          | 78.4         |
@@ -52,17 +52,17 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Slice Logic              |     1.048 |     1435 |       --- |             --- |
-|   LUT as Logic           |     0.870 |      776 |    133800 |            0.58 |
+| Slice Logic              |     1.047 |     1435 |       --- |             --- |
+|   LUT as Logic           |     0.869 |      776 |    133800 |            0.58 |
 |   CARRY4                 |     0.100 |       44 |     33450 |            0.13 |
 |   Register               |     0.062 |      401 |    267600 |            0.15 |
 |   LUT as Distributed RAM |     0.010 |       48 |     46200 |            0.10 |
 |   BUFG                   |     0.006 |        2 |        32 |            6.25 |
 |   Others                 |     0.000 |       10 |       --- |             --- |
-| Signals                  |     1.388 |     1331 |       --- |             --- |
+| Signals                  |     1.400 |     1331 |       --- |             --- |
 | I/O                      |     0.949 |       42 |       400 |           10.50 |
 | Static Power             |     0.141 |          |           |                 |
-| Total                    |     3.526 |          |           |                 |
+| Total                    |     3.537 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     2.527 |       2.488 |      0.039 |
+| Vccint    |       1.000 |     2.538 |       2.499 |      0.039 |
 | Vccaux    |       1.800 |     0.105 |       0.073 |      0.031 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -139,17 +139,18 @@ Table of Contents
 +-----------------------------------+-----------+
 | Name                              | Power (W) |
 +-----------------------------------+-----------+
-| Top                               |     3.385 |
-|   cpu                             |     1.759 |
-|     u_alu                         |     0.067 |
-|     u_regfile                     |     0.285 |
+| Top                               |     3.396 |
+|   cpu                             |     1.766 |
+|     u_alu                         |     0.064 |
+|     u_regfile                     |     0.283 |
 |       rf_reg_r1_0_31_24_29        |     0.003 |
 |       rf_reg_r1_0_31_30_31        |     0.001 |
+|       rf_reg_r1_0_31_6_11         |     0.001 |
 |       rf_reg_r2_0_31_24_29        |     0.003 |
 |   irom                            |     0.115 |
 |     U0                            |     0.115 |
 |       synth_options.dist_mem_inst |     0.115 |
-|   ram                             |     0.270 |
+|   ram                             |     0.275 |
 +-----------------------------------+-----------+
 
 
