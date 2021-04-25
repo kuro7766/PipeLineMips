@@ -15,7 +15,11 @@ module mycpu_top(
     input  [31:0] data_sram_rdata
 
 );
+
+// 
 assign reset = ~reset_n;
+// assign reset = reset_n;
+
 //reg         reset;
 //always @(posedge clk) reset <= ~resetn;
 
@@ -88,8 +92,8 @@ wire [31:0] rf_rdata1;
 wire [ 4:0] rf_raddr2;
 wire [31:0] rf_rdata2;
 
-// fs、ds、es、ms、ws分
-// 别对应取指、译码、执行、访存阶段。
+// fs、ds、es、ms、ws�?
+// 别对应取指�?�译码�?�执行�?�访存阶段�??
 
 // match ?
 wire        rs_mch_es_dst; // 前馈相关信号
@@ -164,6 +168,7 @@ assign fs_allowin     = !fs_valid || fs_ready_go && ds_allowin;
 assign fs_to_ds_valid = fs_valid && fs_ready_go;
 always @(posedge clk) begin
     if (reset) begin
+        // fs被占用的状�??
         fs_valid <= 1'b0;
     end
     else if (fs_allowin) begin
@@ -185,8 +190,9 @@ assign inst_sram_addr  = nextpc;
 //assign inst_sram_wdata = 32'b0;
 
 assign inst            = inst_sram_rdata;
-    
+
 // ID stage
+// 因为产生了数据相�?
 assign ds_stall = (es_valid && es_is_load_op && (es_dest!=5'b0) && !inst_jal && (es_dest==rs || (es_dest==rt && !dst_is_rt)));  //  
 assign ds_ready_go    = !ds_stall;
 assign ds_allowin     = !ds_valid || ds_ready_go && es_allowin;
@@ -205,6 +211,7 @@ always @(posedge clk) begin
     end
 end
 
+//因为不知道它是怎么分割的
 assign op   = ds_inst[31:26];
 assign rs   = ds_inst[25:21];
 assign rt   = ds_inst[20:16];
@@ -267,7 +274,9 @@ assign mem_we       = inst_sw;
 assign dest         = dst_is_r31 ? 5'd31 :
                       dst_is_rt  ? rt    : 
                                    rd;
-assign is_load_op   = inst_lw;       //lw执行有取操作数操作
+
+//相当于去了一个别名  ，inst_lw                                 
+assign is_load_op   = inst_lw;       //lw执行有取操作数操�?
 
 assign rf_raddr1 = rs;
 assign rf_raddr2 = rt;
@@ -284,17 +293,24 @@ regfile u_regfile(
 
 assign rs_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rs);           //前馈相关信号
 assign rt_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rt) && !dst_is_rt; //前馈相关信号
+
+
 assign rs_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rs); //前馈相关信号
 assign rt_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rt) && !dst_is_rt; //前馈相关信号
+
+
 assign rs_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rs); //前馈相关信号
 assign rt_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rt) && !dst_is_rt; //前馈相关信号
+
+//执行段的吗
 assign rs_value = rs_mch_es_dst ? alu_result      :  //前馈处理
-                  rs_mch_ms_dst ? final_result    :  	//前馈处理  错误代码需要更正  *************
-                  rs_mch_ws_dst ? ws_final_result :  		//前馈处理  错误代码需要更正  *************
-                                  rf_rdata1;         
+                  rs_mch_ms_dst ? final_result    :  	//前馈处理  错误代码�?要更�?  *************
+                  rs_mch_ws_dst ? ws_final_result :  		//前馈处理  错误代码�?要更�?  *************
+                                  rf_rdata1;  
+
 assign rt_value = rt_mch_es_dst ? alu_result      :   //前馈处理
-                  rt_mch_ms_dst ? final_result    :   //前馈处理  错误代码需要更正  *************
-                  rt_mch_ws_dst ? ws_final_result :   //前馈处理     错误代码需要更正  *************
+                  rt_mch_ms_dst ? final_result    :   //前馈处理  错误代码�?要更�?  *************
+                  rt_mch_ws_dst ? ws_final_result :   //前馈处理     错误代码�?要更�?  *************
                                   rf_rdata2;          
 
 assign rs_eq_rt = (rs_value == rt_value);
@@ -303,6 +319,7 @@ assign br_taken = (   inst_beq  &&  rs_eq_rt
                    || inst_jal
                    || inst_jr
                   ) && ds_valid;
+
 assign br_target = (inst_beq || inst_bne) ? (fs_pc + {{14{imm[15]}}, imm[15:0], 2'b0}) :
                    (inst_jr)              ? rs_value :
                   /*inst_jal*/              {fs_pc[31:28], jidx[25:0], 2'b0};
@@ -362,6 +379,7 @@ assign ms_allowin     = !ms_valid || ms_ready_go && ws_allowin;
 assign ms_to_ws_valid = ms_valid && ms_ready_go;
 always @(posedge clk) begin
     if (reset) begin
+        //初始化吧这是，全都置为空�?
         ms_valid <= 1'b0;
     end
     else if (ms_allowin) begin
@@ -403,7 +421,6 @@ end
 assign rf_we    = ws_gr_we&&ws_valid;
 assign rf_waddr = ws_dest;
 assign rf_wdata = ws_final_result;
-
 
 endmodule
 

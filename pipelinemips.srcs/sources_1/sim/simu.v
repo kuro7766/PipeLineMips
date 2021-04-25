@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-
+//时间精度1 ns
 module simu();
 
     reg          clk;
@@ -28,6 +28,7 @@ module simu();
         keys   = 0;
 
         #20
+        // 20时钟后重置
         reset  = 1;
         switch = 8'd00000000;
 		

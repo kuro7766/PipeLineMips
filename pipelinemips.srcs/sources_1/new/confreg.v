@@ -31,7 +31,7 @@ module confreg
     
     always @(posedge clk) begin
         if(~rst) begin
-            led   <= 15'b1111111111111111;
+            led   <= 15'b11111111111111111;
             num   <= 15'b0;
             timer <= 15'b0;
         end

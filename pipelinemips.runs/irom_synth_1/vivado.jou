@@ -2,11 +2,11 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Tue Apr 20 20:25:20 2021
-# Process ID: 2404
-# Current directory: D:/6 pipelinemips/pipelinemips.runs/irom_synth_1
+# Start of session at: Sun Apr 25 11:02:58 2021
+# Process ID: 14640
+# Current directory: E:/code/vscode/6 pipelinemips/pipelinemips.runs/irom_synth_1
 # Command line: vivado.exe -log irom.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source irom.tcl
-# Log file: D:/6 pipelinemips/pipelinemips.runs/irom_synth_1/irom.vds
-# Journal file: D:/6 pipelinemips/pipelinemips.runs/irom_synth_1\vivado.jou
+# Log file: E:/code/vscode/6 pipelinemips/pipelinemips.runs/irom_synth_1/irom.vds
+# Journal file: E:/code/vscode/6 pipelinemips/pipelinemips.runs/irom_synth_1\vivado.jou
 #-----------------------------------------------------------
 source irom.tcl -notrace
