@@ -211,7 +211,7 @@ always @(posedge clk) begin
     end
 end
 
-//因为不知道它是怎么分割的
+//因为不知道它是怎么分割的，不需要的当它们不存在
 assign op   = ds_inst[31:26];
 assign rs   = ds_inst[25:21];
 assign rt   = ds_inst[20:16];
@@ -261,6 +261,7 @@ assign alu_op[ 9] = inst_srl;
 assign alu_op[10] = inst_sra;
 assign alu_op[11] = inst_lui;
 
+// 按位或
 assign src1_is_sa   = inst_sll   | inst_srl | inst_sra;
 assign src1_is_pc   = inst_jal;
 assign src2_is_imm  = inst_addiu | inst_lui | inst_lw | inst_sw;
@@ -275,7 +276,7 @@ assign dest         = dst_is_r31 ? 5'd31 :
                       dst_is_rt  ? rt    : 
                                    rd;
 
-//相当于去了一个别名  ，inst_lw                                 
+//相当于取了一个别名  ，inst_lw                                 
 assign is_load_op   = inst_lw;       //lw执行有取操作数操�?
 
 assign rf_raddr1 = rs;
@@ -320,6 +321,8 @@ assign br_taken = (   inst_beq  &&  rs_eq_rt
                    || inst_jr
                   ) && ds_valid;
 
+// 14是14位的意思
+// 拼接成32位
 assign br_target = (inst_beq || inst_bne) ? (fs_pc + {{14{imm[15]}}, imm[15:0], 2'b0}) :
                    (inst_jr)              ? rs_value :
                   /*inst_jal*/              {fs_pc[31:28], jidx[25:0], 2'b0};
