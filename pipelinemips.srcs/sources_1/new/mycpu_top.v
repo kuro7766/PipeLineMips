@@ -8,6 +8,7 @@ module mycpu_top(
     //output [31:0] inst_sram_wdata,
     input  [31:0] inst_sram_rdata,
     // data sram interface
+    // sram数码管和开关控制信号
     output        data_sram_wen,
     //output [ 3:0] data_sram_wen,
     output [31:0] data_sram_addr,
@@ -158,6 +159,7 @@ wire [31:0] rf_wdata;
 
 
 // pre-IF stage
+//几乎始终是1
 assign to_fs_valid  = ~reset;
 assign seq_pc = fs_pc + 3'h4;
 assign nextpc = br_taken ? br_target : seq_pc; 
@@ -192,8 +194,10 @@ assign inst_sram_addr  = nextpc;
 assign inst            = inst_sram_rdata;
 
 // ID stage
-// 因为产生了数据相�?
-assign ds_stall = (es_valid && es_is_load_op && (es_dest!=5'b0) && !inst_jal && (es_dest==rs || (es_dest==rt && !dst_is_rt)));  //  
+// 因为产生了数据相关?
+// is load op 和 es 之间的
+// stall 不能取es
+assign ds_stall = (es_valid && es_is_load_op && (es_dest!=5'b0) && !inst_jal && (es_dest==rs || (es_dest==rt && !dst_is_rt)));  
 assign ds_ready_go    = !ds_stall;
 assign ds_allowin     = !ds_valid || ds_ready_go && es_allowin;
 assign ds_to_es_valid = ds_valid && ds_ready_go;
@@ -268,38 +272,51 @@ assign src2_is_imm  = inst_addiu | inst_lui | inst_lw | inst_sw;
 assign src2_is_8    = inst_jal;
 assign res_from_mem = inst_lw;
 assign dst_is_r31   = inst_jal;
+
+// https://blog.csdn.net/sinat_42483341/article/details/89511856
 assign dst_is_rt    = inst_addiu | inst_lui | inst_lw;
 assign gr_we        = ~inst_sw & ~inst_beq & ~inst_bne & ~inst_jr;
 assign mem_we       = inst_sw;
+
 
 assign dest         = dst_is_r31 ? 5'd31 :
                       dst_is_rt  ? rt    : 
                                    rd;
 
-//相当于取了一个别名  ，inst_lw                                 
+//相当于取了一个别名  ,inst_lw                                 
 assign is_load_op   = inst_lw;       //lw执行有取操作数操�?
 
+// rs rt别名，从rs，rt中取值
+// rf_rdata1,rf_rdata2 自动从两个里取值
 assign rf_raddr1 = rs;
 assign rf_raddr2 = rt;
+
+
 regfile u_regfile(
     .clk    (clk      ),
     .raddr1 (rf_raddr1),
     .rdata1 (rf_rdata1),
     .raddr2 (rf_raddr2),
     .rdata2 (rf_rdata2),
+    // 逐个段向后传递，之后传到寄存器堆里去
     .we     (rf_we    ),
     .waddr  (rf_waddr ),
     .wdata  (rf_wdata )
     );
 
+// dest 是rt或者rd
+// dst_is_rt=inst_addiu | inst_lui | inst_lw;
+// rs_mch,rt_mch 对应写回的寄存器，被后面需要
+// rs rt 是地址
 assign rs_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rs);           //前馈相关信号
 assign rt_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rt) && !dst_is_rt; //前馈相关信号
 
+// assign ds_stall = (es_valid && es_is_load_op && (es_dest!=5'b0) && !inst_jal && (es_dest==rs || (es_dest==rt && !dst_is_rt)));  
 
 assign rs_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rs); //前馈相关信号
 assign rt_mch_ms_dst = ms_valid && ms_gr_we && (ms_dest!=5'b0) && (ms_dest==rt) && !dst_is_rt; //前馈相关信号
 
-
+// 意义：直接放入寄存器中，不用等下一个访存/译码段
 assign rs_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rs); //前馈相关信号
 assign rt_mch_ws_dst = ws_valid && ws_gr_we && (ws_dest!=5'b0) && (ws_dest==rt) && !dst_is_rt; //前馈相关信号
 

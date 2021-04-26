@@ -45,6 +45,8 @@ module Top(
         .inst_sram_rdata  ( inst_data     ),
         .data_sram_wen   ( data_wen      ),
         .data_sram_addr  ( data_addr     ),
+        // data out 是数码管
+        // data in 是开关
         .data_sram_wdata  ( data_dout     ),
         .data_sram_rdata   ( data_din      )
     );
@@ -61,6 +63,9 @@ module Top(
         .rst        ( reset         ),
         .data_wen   ( data_wen      ),
         .data_addr  ( data_addr     ),
+        // data out 是数码管
+        // data in 是开关
+
         .data_dout  ( data_dout     ),
         .data_din   ( data_din      ),
         .switch     ( switch        ),
