@@ -305,7 +305,13 @@ regfile u_regfile(
     );
 
 // dest 是rt或者rd
+// dst_is_rt  ? rt : rd;
+
 // dst_is_rt=inst_addiu | inst_lui | inst_lw;
+
+// ADDU rd, rs, rt
+// ADDU rd, rs, rt
+
 // rs_mch,rt_mch 对应写回的寄存器，被后面需要
 // rs rt 是地址
 assign rs_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rs);           //前馈相关信号
@@ -332,6 +338,8 @@ assign rt_value = rt_mch_es_dst ? alu_result      :   //前馈处理
                                   rf_rdata2;          
 
 assign rs_eq_rt = (rs_value == rt_value);
+
+// 只实现了这几个
 assign br_taken = (   inst_beq  &&  rs_eq_rt
                    || inst_bne  && !rs_eq_rt
                    || inst_jal

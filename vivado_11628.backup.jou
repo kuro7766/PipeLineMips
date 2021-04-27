@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Mon Apr 26 20:00:30 2021
+# Process ID: 11628
+# Current directory: E:/code/vscode/6 pipelinemips
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11000 E:\code\vscode\6 pipelinemips\pipelinemips.xpr
+# Log file: E:/code/vscode/6 pipelinemips/vivado.log
+# Journal file: E:/code/vscode/6 pipelinemips\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {E:/code/vscode/6 pipelinemips/pipelinemips.xpr}
+update_compile_order -fileset sources_1
+reset_run irom_synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+wait_on_run synth_1
