@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
 // Date        : Thu Apr 29 10:28:45 2021
 // Host        : LAPTOP-5L30QH1U running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim {E:/code/vscode/6
-//               pipelinemips/pipelinemips.srcs/sources_1/ip/irom/irom_sim_netlist.v}
+// Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
+//               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ irom_sim_netlist.v
 // Design      : irom
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,7 +14,7 @@
 
 (* CHECK_LICENSE_TYPE = "irom,dist_mem_gen_v8_0_13,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "dist_mem_gen_v8_0_13,Vivado 2019.2" *) 
 (* NotValidForBitStream *)
-module irom
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (a,
     spo);
   input [9:0]a;
@@ -58,7 +58,7 @@ module irom
   (* c_reg_a_d_inputs = "0" *) 
   (* c_sync_enable = "1" *) 
   (* c_width = "32" *) 
-  irom_dist_mem_gen_v8_0_13 U0
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13 U0
        (.a(a),
         .clk(1'b0),
         .d({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
@@ -88,8 +88,8 @@ endmodule
 (* C_MEM_INIT_FILE = "irom.mif" *) (* C_MEM_TYPE = "0" *) (* C_PARSER_TYPE = "1" *) 
 (* C_PIPELINE_STAGES = "0" *) (* C_QCE_JOINED = "0" *) (* C_QUALIFY_WE = "0" *) 
 (* C_READ_MIF = "1" *) (* C_REG_A_D_INPUTS = "0" *) (* C_REG_DPRA_INPUT = "0" *) 
-(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "32" *) (* ORIG_REF_NAME = "dist_mem_gen_v8_0_13" *) 
-module irom_dist_mem_gen_v8_0_13
+(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "32" *) 
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13
    (a,
     d,
     dpra,
@@ -253,13 +253,12 @@ module irom_dist_mem_gen_v8_0_13
   assign spo[3:0] = \^spo [3:0];
   GND GND
        (.G(\<const0> ));
-  irom_dist_mem_gen_v8_0_13_synth \synth_options.dist_mem_inst 
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13_synth \synth_options.dist_mem_inst 
        (.a(a),
         .spo({\^spo [27],\^spo [29],\^spo [1],\^spo [26],\^spo [0],\^spo [18:16],\^spo [5],\^spo [3:2]}));
 endmodule
 
-(* ORIG_REF_NAME = "dist_mem_gen_v8_0_13_synth" *) 
-module irom_dist_mem_gen_v8_0_13_synth
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13_synth
    (spo,
     a);
   output [10:0]spo;
@@ -268,13 +267,12 @@ module irom_dist_mem_gen_v8_0_13_synth
   wire [9:0]a;
   wire [10:0]spo;
 
-  irom_rom \gen_rom.rom_inst 
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_rom \gen_rom.rom_inst 
        (.a(a),
         .spo(spo));
 endmodule
 
-(* ORIG_REF_NAME = "rom" *) 
-module irom_rom
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_rom
    (spo,
     a);
   output [10:0]spo;

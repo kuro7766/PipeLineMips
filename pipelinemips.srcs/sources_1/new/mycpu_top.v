@@ -26,6 +26,7 @@ assign reset = ~reset_n;
 
 wire [31:0] seq_pc;
 wire [31:0] nextpc;
+
 // fs_ -- IF  stage
 wire        fs_allowin;
 wire        fs_ready_go;
@@ -178,8 +179,8 @@ always @(posedge clk) begin
     end
 
     if (reset) begin
-        fs_pc <= 32'hfffffffc;  //trick: to make nextpc be 0x00000000 during reset
-        //fs_pc <= 32'hbfbffffc;  //trick: to make nextpc be 0xbfc00000 during reset 
+        // fs_pc <= 32'hfffffffc;  //trick: to make nextpc be 0x00000000 during reset
+        fs_pc <= 32'hbfbffffc;  //trick: to make nextpc be 0xbfc00000 during reset 
     end
     else if (to_fs_valid && fs_allowin) begin
         fs_pc <= nextpc;
@@ -197,6 +198,9 @@ assign inst            = inst_sram_rdata;
 // 因为产生了数据相关?
 // is load op 和 es 之间的
 // stall 不能取es
+
+//相当于取了一个别名  ,inst_lw                                 
+// assign is_load_op   = inst_lw;
 assign ds_stall = (es_valid && es_is_load_op && (es_dest!=5'b0) && !inst_jal && (es_dest==rs || (es_dest==rt && !dst_is_rt)));  
 assign ds_ready_go    = !ds_stall;
 assign ds_allowin     = !ds_valid || ds_ready_go && es_allowin;
@@ -314,6 +318,8 @@ regfile u_regfile(
 
 // rs_mch,rt_mch 对应写回的寄存器，被后面需要
 // rs rt 是地址
+//相当于取了一个别名  ,inst_lw                                 
+// assign is_load_op   = inst_lw;
 assign rs_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rs);           //前馈相关信号
 assign rt_mch_es_dst = es_valid && es_gr_we && !es_is_load_op && (es_dest!=5'b0) && (es_dest==rt) && !dst_is_rt; //前馈相关信号
 
